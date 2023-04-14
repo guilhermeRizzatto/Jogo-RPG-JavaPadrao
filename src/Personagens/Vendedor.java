@@ -32,7 +32,7 @@ public class Vendedor {
         }
     }
 
-    public void venderItem(Vendedor vendedor, Jogador jogador, int s){
+    public void venderItem(Jogador jogador, int s){
         for (int i = 0; i < itens.size(); i++){
             if(s - 1 == i){
                     jogador.setDinheiro(jogador.getDinheiro() - itens.get(i).getPreco());
