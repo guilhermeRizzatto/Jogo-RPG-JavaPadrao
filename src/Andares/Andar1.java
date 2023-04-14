@@ -59,7 +59,7 @@ public class Andar1 {
             System.out.println("Digite T");
         }
         jogador.atkJogador(inimigo);
-        inimigo.atkInimigo(inimigo, jogador);
+        inimigo.atkInimigo(jogador);
         System.out.println("Você tirou: " + jogador.getDano() + " de vida dele, e perdeu:" + inimigo.getDano() + " de vida");
         System.out.println();
         System.out.println("Aperte qualquer tecla para continuar");
@@ -74,7 +74,7 @@ public class Andar1 {
                 System.out.println("Digite T");
             }
             jogador.atkJogador(inimigo);
-            inimigo.atkInimigo(inimigo, jogador);
+            inimigo.atkInimigo(jogador);
             System.out.println();
         }
 
@@ -97,7 +97,7 @@ public class Andar1 {
                 System.out.println("Digite T");
             }
             jogador.atkJogador(inimigo);
-            inimigo.atkInimigo(inimigo, jogador);
+            inimigo.atkInimigo(jogador);
             System.out.println();
             UI.clearScreen();
         }

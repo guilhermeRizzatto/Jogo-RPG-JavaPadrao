@@ -26,8 +26,8 @@ public class Inimigo {
         this.dano = dano;
     }
 
-    public void atkInimigo(Inimigo inimigo , Jogador jogador){
-        jogador.setVida(jogador.getVida() - inimigo.getDano());
+    public void atkInimigo(Jogador jogador){
+        jogador.setVida(jogador.getVida() - getDano());
     }
 
     @Override
