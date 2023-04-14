@@ -81,8 +81,8 @@ public class Jogador {
         return null;
     }
 
-    public void atkJogador(Jogador jogador , Inimigo inimigo){
-        inimigo.setVida(inimigo.getVida() - jogador.getDano());
+    public void atkJogador(Inimigo inimigo){
+        inimigo.setVida(inimigo.getVida() - getDano());
     }
 
     @Override

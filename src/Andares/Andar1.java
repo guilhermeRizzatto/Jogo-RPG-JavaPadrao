@@ -58,7 +58,7 @@ public class Andar1 {
         while (readInput(sc) != 't'){
             System.out.println("Digite T");
         }
-        jogador.atkJogador(jogador, inimigo);
+        jogador.atkJogador(inimigo);
         inimigo.atkInimigo(inimigo, jogador);
         System.out.println("Você tirou: " + jogador.getDano() + " de vida dele, e perdeu:" + inimigo.getDano() + " de vida");
         System.out.println();
@@ -73,7 +73,7 @@ public class Andar1 {
             while (readInput(sc) != 't') {
                 System.out.println("Digite T");
             }
-            jogador.atkJogador(jogador, inimigo);
+            jogador.atkJogador(inimigo);
             inimigo.atkInimigo(inimigo, jogador);
             System.out.println();
         }
@@ -96,7 +96,7 @@ public class Andar1 {
             while (readInput(sc) != 't') {
                 System.out.println("Digite T");
             }
-            jogador.atkJogador(jogador, inimigo);
+            jogador.atkJogador(inimigo);
             inimigo.atkInimigo(inimigo, jogador);
             System.out.println();
             UI.clearScreen();
