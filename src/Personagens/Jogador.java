@@ -5,6 +5,7 @@ import Itens.PocaoDeDano;
 import Itens.PocaoDeVida;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Jogador {
 
@@ -82,7 +83,18 @@ public class Jogador {
     }
 
     public void atkJogador(Inimigo inimigo){
-        inimigo.setVida(inimigo.getVida() - getDano());
+        if(!danoCritico()){
+            inimigo.setVida(inimigo.getVida() - getDano());
+        }
+        else inimigo.setVida(inimigo.getVida() - (getDano() + 2));
+    }
+
+    private boolean danoCritico(){
+        int critico = new Random().nextInt(5) + 3;
+        if(critico == 5){
+            return true;
+        }
+        return false;
     }
 
     @Override
