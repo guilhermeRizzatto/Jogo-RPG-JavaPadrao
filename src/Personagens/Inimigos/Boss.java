@@ -1,9 +1,16 @@
 package Personagens.Inimigos;
 
-public class Boss extends Servo {
+import Personagens.Jogador;
+
+public class Boss extends Inimigo {
 
     public Boss(Integer vida, Integer dano) {
         super(vida, dano);
+    }
+
+    @Override
+    public void atk(Jogador jogador) {
+
     }
 
 
