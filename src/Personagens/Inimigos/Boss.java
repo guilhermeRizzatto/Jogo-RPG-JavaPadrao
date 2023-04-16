@@ -4,15 +4,21 @@ import Personagens.Jogador;
 
 public class Boss extends Inimigo {
 
+    private final Integer metadeVida = getVida() / 2;
+
     public Boss(Integer vida, Integer dano) {
         super(vida, dano);
     }
 
     @Override
     public void atk(Jogador jogador) {
-
+        if (getVida() > metadeVida){
+            jogador.setVida(jogador.getVida() - getDano());
+        }
+        else {
+            jogador.setVida(jogador.getVida() - getDano() * 4);
+        }
     }
-
 
     @Override
     public String toString(){
