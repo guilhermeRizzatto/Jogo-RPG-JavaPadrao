@@ -1,4 +1,4 @@
-package Personagens;
+package Personagens.Inimigos;
 
 public class Boss extends Servo {
 

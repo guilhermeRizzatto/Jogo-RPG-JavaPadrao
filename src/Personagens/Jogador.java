@@ -3,6 +3,7 @@ package Personagens;
 import Itens.Item;
 import Itens.PocaoDeDano;
 import Itens.PocaoDeVida;
+import Personagens.Inimigos.Servo;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -1,4 +1,6 @@
-package Personagens;
+package Personagens.Inimigos;
+
+import Personagens.Jogador;
 
 public class Servo {
 

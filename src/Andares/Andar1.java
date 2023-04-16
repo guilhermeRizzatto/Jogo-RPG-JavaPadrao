@@ -1,6 +1,6 @@
 package Andares;
 
-import Personagens.Servo;
+import Personagens.Inimigos.Servo;
 import Personagens.Jogador;
 import Program.UI;
 
