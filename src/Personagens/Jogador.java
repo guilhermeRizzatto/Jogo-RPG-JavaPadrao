@@ -82,11 +82,11 @@ public class Jogador {
         return null;
     }
 
-    public void atkJogador(Inimigo inimigo){
+    public void atkJogador(Servo servo){
         if(!danoCritico()){
-            inimigo.setVida(inimigo.getVida() - getDano());
+            servo.setVida(servo.getVida() - getDano());
         }
-        else inimigo.setVida(inimigo.getVida() - (getDano() + 2));
+        else servo.setVida(servo.getVida() - (getDano() + 2));
     }
 
     private boolean danoCritico(){

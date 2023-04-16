@@ -1,11 +1,11 @@
 package Personagens;
 
-public class Inimigo {
+public class Servo {
 
     private Integer vida;
     private Integer dano;
 
-    public Inimigo(Integer vida , Integer dano){
+    public Servo(Integer vida , Integer dano){
         this.vida = vida;
         this.dano = dano;
     }
@@ -32,7 +32,7 @@ public class Inimigo {
 
     @Override
     public String toString(){
-        return "Inimigo: " + "\n"
+        return "Servo: " + "\n"
                 + "Vida: " + vida + "\n"
                 + "Dano por ataque: " + dano + "\n";
     }

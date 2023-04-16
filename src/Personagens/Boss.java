@@ -1,10 +1,11 @@
 package Personagens;
 
-public class Boss extends Inimigo{
+public class Boss extends Servo {
 
     public Boss(Integer vida, Integer dano) {
         super(vida, dano);
     }
+
 
     @Override
     public String toString(){
