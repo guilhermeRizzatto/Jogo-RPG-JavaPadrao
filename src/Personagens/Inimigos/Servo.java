@@ -2,40 +2,22 @@ package Personagens.Inimigos;
 
 import Personagens.Jogador;
 
-public class Servo {
-
-    private Integer vida;
-    private Integer dano;
+public class Servo extends Inimigo{
 
     public Servo(Integer vida , Integer dano){
-        this.vida = vida;
-        this.dano = dano;
+        super(vida, dano);
     }
 
-    public Integer getVida() {
-        return vida;
+    @Override
+    public void atk(Jogador jogador) {
+
     }
 
-    public void setVida(Integer vida) {
-        this.vida = vida;
-    }
-
-    public Integer getDano() {
-        return dano;
-    }
-
-    public void setDano(Integer dano) {
-        this.dano = dano;
-    }
-
-    public void atkInimigo(Jogador jogador){
-        jogador.setVida(jogador.getVida() - getDano());
-    }
 
     @Override
     public String toString(){
         return "Servo: " + "\n"
-                + "Vida: " + vida + "\n"
-                + "Dano por ataque: " + dano + "\n";
+                + "Vida: " + getVida() + "\n"
+                + "Dano por ataque: " + getDano() + "\n";
     }
 }
