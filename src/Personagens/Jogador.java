@@ -91,11 +91,8 @@ public class Jogador {
     }
 
     private boolean danoCritico(){
-        int critico = new Random().nextInt(5) + 3;
-        if(critico == 5){
-            return true;
-        }
-        return false;
+        int critico = new Random().nextInt(15) + 1;
+        return critico == 5;
     }
 
     @Override
