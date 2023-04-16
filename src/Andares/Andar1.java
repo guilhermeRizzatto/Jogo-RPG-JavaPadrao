@@ -1,5 +1,6 @@
 package Andares;
 
+import Personagens.Inimigos.Inimigo;
 import Personagens.Inimigos.Servo;
 import Personagens.Jogador;
 import Program.UI;
@@ -10,11 +11,11 @@ import java.util.Scanner;
 public class Andar1 {
 
     private Jogador jogador;
-    private Servo servo;
+    private Inimigo inimigo;
 
     public Andar1(Jogador jogador){
         this.jogador = jogador;
-        servo = new Servo(10, 2);
+        inimigo = new Servo(10, 2);
     }
 
     public void primeiraCena(){
@@ -44,7 +45,7 @@ public class Andar1 {
         System.out.println();
         System.out.println("Se acalme! irei te ajudar nessa");
         System.out.println();
-        System.out.println("O seu dano por ataque é de: " + jogador.getDano() + " e o do servo é de: " + servo.getDano());
+        System.out.println("O seu dano por ataque é de: " + jogador.getDano() + " e o do servo é de: " + inimigo.getDano());
         System.out.println();
         System.out.println("Me parece que ele é mais forte que você... mas tente matá-lo, eu irei te dar uma poção de vida e dano quando precisar");
         System.out.println();
@@ -58,9 +59,9 @@ public class Andar1 {
         while (readInput(sc) != 't'){
             System.out.println("Digite T");
         }
-        jogador.atkJogador(servo);
-        servo.atkInimigo(jogador);
-        System.out.println("Você tirou: " + jogador.getDano() + " de vida dele, e perdeu:" + servo.getDano() + " de vida");
+        jogador.atkJogador(inimigo);
+        inimigo.atk(jogador);
+        System.out.println("Você tirou: " + jogador.getDano() + " de vida dele, e perdeu:" + inimigo.getDano() + " de vida");
         System.out.println();
         System.out.println("Aperte qualquer tecla para continuar");
         sc.next();
@@ -73,8 +74,8 @@ public class Andar1 {
             while (readInput(sc) != 't') {
                 System.out.println("Digite T");
             }
-            jogador.atkJogador(servo);
-            servo.atkInimigo(jogador);
+            jogador.atkJogador(inimigo);
+            inimigo.atk(jogador);
             System.out.println();
         }
 
@@ -89,15 +90,15 @@ public class Andar1 {
         System.out.println();
         System.out.println("Bom agora ataque novamente!!");
 
-        while(servo.getVida() > 0){
+        while(inimigo.getVida() > 0){
             status();
             System.out.println("T - Atacar");
             System.out.println();
             while (readInput(sc) != 't') {
                 System.out.println("Digite T");
             }
-            jogador.atkJogador(servo);
-            servo.atkInimigo(jogador);
+            jogador.atkJogador(inimigo);
+            inimigo.atk(jogador);
             System.out.println();
             UI.clearScreen();
         }
@@ -112,8 +113,8 @@ public class Andar1 {
 
     public void status(){
         System.out.printf("%-25s%s%n","Jogador:","Servo:");
-        System.out.printf("%s%-20d%s%d%n","Vida:",jogador.getVida(),"Vida:", servo.getVida());
-        System.out.printf("%s%-20d%s%d%n","Dano:",jogador.getDano(),"Dano:", servo.getDano());
+        System.out.printf("%s%-20d%s%d%n","Vida:",jogador.getVida(),"Vida:", inimigo.getVida());
+        System.out.printf("%s%-20d%s%d%n","Dano:",jogador.getDano(),"Dano:", inimigo.getDano());
         System.out.printf("%s%.2f%n","Dinheiro:",jogador.getDinheiro());
         System.out.println();
     }

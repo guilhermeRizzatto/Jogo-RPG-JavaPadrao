@@ -3,7 +3,7 @@ package Personagens;
 import Itens.Item;
 import Itens.PocaoDeDano;
 import Itens.PocaoDeVida;
-import Personagens.Inimigos.Servo;
+import Personagens.Inimigos.Inimigo;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -83,11 +83,11 @@ public class Jogador {
         return null;
     }
 
-    public void atkJogador(Servo servo){
+    public void atkJogador(Inimigo inimigo){
         if(!danoCritico()){
-            servo.setVida(servo.getVida() - getDano());
+            inimigo.setVida(inimigo.getVida() - getDano());
         }
-        else servo.setVida(servo.getVida() - (getDano() + 2));
+        else inimigo.setVida(inimigo.getVida() - (getDano() + 2));
     }
 
     private boolean danoCritico(){

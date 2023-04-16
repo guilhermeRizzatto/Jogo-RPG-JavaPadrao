@@ -13,7 +13,6 @@ public class Servo extends Inimigo{
 
     }
 
-
     @Override
     public String toString(){
         return "Servo: " + "\n"
