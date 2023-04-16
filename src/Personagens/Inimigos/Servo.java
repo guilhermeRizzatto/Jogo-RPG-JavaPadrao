@@ -10,7 +10,7 @@ public class Servo extends Inimigo{
 
     @Override
     public void atk(Jogador jogador) {
-
+        jogador.setVida(jogador.getVida() - getDano());
     }
 
     @Override
