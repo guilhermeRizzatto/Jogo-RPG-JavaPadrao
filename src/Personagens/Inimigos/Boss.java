@@ -16,7 +16,7 @@ public class Boss extends Inimigo {
             jogador.setVida(jogador.getVida() - getDano());
         }
         else {
-            jogador.setVida(jogador.getVida() - getDano() * 4);
+            jogador.setVida(jogador.getVida() - (getDano() * 2));
         }
     }
 
