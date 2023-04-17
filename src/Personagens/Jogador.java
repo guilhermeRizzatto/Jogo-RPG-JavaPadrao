@@ -84,10 +84,12 @@ public class Jogador {
     }
 
     public void atkJogador(Inimigo inimigo){
-        if(!danoCritico()){
+        if(danoCritico()){
+            inimigo.setVida(inimigo.getVida() - (getDano() + 2));
+        }
+        else{
             inimigo.setVida(inimigo.getVida() - getDano());
         }
-        else inimigo.setVida(inimigo.getVida() - (getDano() + 2));
     }
 
     private boolean danoCritico(){
