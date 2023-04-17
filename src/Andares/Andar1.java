@@ -68,7 +68,7 @@ public class Andar1 {
 
         for(int i = 1; i < 4; i++) {
             UI.clearScreen();
-            status();
+            statusBatalha();
             System.out.println("Ataque novamente!");
             System.out.println("T - Atacar");
             while (readInput(sc) != 't') {
@@ -91,7 +91,7 @@ public class Andar1 {
         System.out.println("Bom agora ataque novamente!!");
 
         while(inimigo.getVida() > 0){
-            status();
+            statusBatalha();
             System.out.println("T - Atacar");
             System.out.println();
             while (readInput(sc) != 't') {
@@ -102,7 +102,7 @@ public class Andar1 {
             System.out.println();
             UI.clearScreen();
         }
-        status();
+        statusBatalha();
         System.out.println("Otimo você conseguiu matá-lo, vamos para o proximo andar!!");
         System.out.println("Próximo andar...");
     }
@@ -111,7 +111,7 @@ public class Andar1 {
         return sc.next().charAt(0);
     }
 
-    public void status(){
+    public void statusBatalha(){
         System.out.printf("%-25s%s%n","Jogador:","Servo:");
         System.out.printf("%s%-20d%s%d%n","Vida:",jogador.getVida(),"Vida:", inimigo.getVida());
         System.out.printf("%s%-20d%s%d%n","Dano:",jogador.getDano(),"Dano:", inimigo.getDano());
@@ -120,3 +120,4 @@ public class Andar1 {
     }
 
 }
+
