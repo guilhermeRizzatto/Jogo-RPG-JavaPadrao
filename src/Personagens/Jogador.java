@@ -51,6 +51,7 @@ public class Jogador {
     }
 
     public void mostrarInventario(){
+        System.out.println("Inventário: ");
         for (int i = 0; i < inventario.size(); i++){
             System.out.println((i+1) + " - " + inventario.get(i));
         }
