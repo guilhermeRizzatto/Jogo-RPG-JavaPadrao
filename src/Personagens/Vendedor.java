@@ -33,7 +33,7 @@ public class Vendedor {
     }
 
     public void venderItem(Jogador jogador, int s){
-        Item item = retornaItem(jogador, s);
+        Item item = retornaItem(s);
         if (item.getPreco() > jogador.getDinheiro()){
             System.out.println("Dinheiro insuficiente");
         }
@@ -43,7 +43,7 @@ public class Vendedor {
         }
     }
 
-    private Item retornaItem(Jogador jogador, int s) {
+    private Item retornaItem(int s) {
         for (int i = 0; i < itens.size(); i++) {
             if (s - 1 == i) {
                 return itens.get(i);
