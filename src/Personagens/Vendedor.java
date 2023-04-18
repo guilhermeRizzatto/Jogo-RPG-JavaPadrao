@@ -33,17 +33,23 @@ public class Vendedor {
     }
 
     public void venderItem(Jogador jogador, int s){
-        for (int i = 0; i < itens.size(); i++){
-            if(s - 1 == i){
-                    if(itens.get(i).getPreco() > jogador.getDinheiro()){
-                        System.out.println("Dinheiro insuficiente");
-                    }
-                    else {
-                        jogador.setDinheiro(jogador.getDinheiro() - itens.get(i).getPreco());
-                        jogador.adicionarItem(itens.get(i));
-                    }
-                }
+        Item item = retornaItem(jogador, s);
+        if (item.getPreco() > jogador.getDinheiro()){
+            System.out.println("Dinheiro insuficiente");
+        }
+        else{
+            jogador.setDinheiro(jogador.getDinheiro() - item.getPreco());
+            jogador.adicionarItem(item);
+        }
+    }
+
+    private Item retornaItem(Jogador jogador, int s) {
+        for (int i = 0; i < itens.size(); i++) {
+            if (s - 1 == i) {
+                return itens.get(i);
             }
+        }
+        return null;
     }
 
 
