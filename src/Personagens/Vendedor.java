@@ -28,15 +28,20 @@ public class Vendedor {
     public void mostrarItens(){
         for (int i = 0; i < itens.size(); i++){
             System.out.println((i+1) + " - " + itens.get(i) + ", preço: " + itens.get(i).getPreco());
-
         }
+        System.out.println();
     }
 
     public void venderItem(Jogador jogador, int s){
         for (int i = 0; i < itens.size(); i++){
             if(s - 1 == i){
-                    jogador.setDinheiro(jogador.getDinheiro() - itens.get(i).getPreco());
-                    jogador.adicionarItem(itens.get(i));
+                    if(itens.get(i).getPreco() > jogador.getDinheiro()){
+                        System.out.println("Dinheiro insuficiente");
+                    }
+                    else {
+                        jogador.setDinheiro(jogador.getDinheiro() - itens.get(i).getPreco());
+                        jogador.adicionarItem(itens.get(i));
+                    }
                 }
             }
     }
@@ -44,7 +49,7 @@ public class Vendedor {
 
     @Override
     public String toString(){
-        return "Olá sou o vendedor deste andar, o que deseja comprar?";
+        return "Olá sou o vendedor, o que deseja comprar?";
     }
 
 }

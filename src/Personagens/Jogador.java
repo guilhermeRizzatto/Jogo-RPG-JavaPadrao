@@ -52,6 +52,9 @@ public class Jogador {
 
     public void mostrarInventario(){
         System.out.println("Inventário: ");
+        if(inventario.isEmpty()){
+            System.out.println("vazio");
+        }
         for (int i = 0; i < inventario.size(); i++){
             System.out.println((i+1) + " - " + inventario.get(i));
         }
@@ -69,9 +72,11 @@ public class Jogador {
         Item p = pegarItem(n);
                 if(p instanceof PocaoDeVida){
                     jogador.setVida(jogador.getVida() + ((PocaoDeVida) p).getVida());
+                    removerItem(p);
                 }
                 if(p instanceof PocaoDeDano){
                     jogador.setDano(jogador.getDano() + ((PocaoDeDano) p).getDano());
+                    removerItem(p);
                 }
             }
 
@@ -86,6 +91,7 @@ public class Jogador {
 
     public void atkJogador(Inimigo inimigo){
         if(danoCritico()){
+            System.out.println("DANO CRITICO");
             inimigo.setVida(inimigo.getVida() - (getDano() + 2));
         }
         else{
