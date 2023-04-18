@@ -3,11 +3,21 @@ package Program;
 import Personagens.Inimigos.Inimigo;
 import Personagens.Jogador;
 
+import java.io.IOException;
+
 public class UI {
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
+    public static void clr(){
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            }
+            else {
+                System.out.print("\033\143");
+            }
+        } catch (IOException | InterruptedException ex) {}
     }
+
 
     public static void statusBatalha(Jogador jogador , Inimigo inimigo){
         System.out.println();

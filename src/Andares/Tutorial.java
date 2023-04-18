@@ -8,7 +8,6 @@ import Personagens.Jogador;
 import Personagens.Vendedor;
 import Program.UI;
 
-
 import java.util.Scanner;
 
 
@@ -24,14 +23,14 @@ public class Tutorial {
     }
 
     public void primeiraCena(Scanner sc){
-        UI.clearScreen();
+        UI.clr();
         System.out.println("Bem vindo ao tutorial");
         System.out.println();
         System.out.println("Aqui iremos te ensinar a atacar os inimigos, usar os itens e comprá-los");
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
         System.out.println("Você sera enviado a uma torre de 10 andares, e o seu objetivo é chegar até o seu ultimo andar");
         System.out.println("Derrotando todos os inimigos que aparecerem em cada andar");
         System.out.println();
@@ -39,14 +38,14 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
         System.out.println("Ah... quase me esqueci, sempre vá preparado para o próximo andar, você pode encontrar o Boss!");
         System.out.println();
         System.out.println("Se prepare caso o encontre, ele é o um dos mais fortes, e comanda todos abaixo do seu andar");
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
     }
 
     public void segundaCena(Scanner sc){
@@ -64,7 +63,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
 
     }
 
@@ -89,7 +88,7 @@ public class Tutorial {
         sc.nextLine();
 
         for(int i = 1; i < 4; i++) {
-            UI.clearScreen();
+            UI.clr();
             UI.statusBatalha(jogador, servo);
             System.out.println("T - Atacar");
             while (readInput(sc) != 't') {
@@ -107,7 +106,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
         jogador.adicionarItem(new PocaoDeVida(10, 0.0));
         jogador.adicionarItem(new PocaoDeDano(3, 0.0));
         System.out.println("Agora preste atenção no seu inventário");
@@ -128,7 +127,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
         System.out.println(jogador);
         System.out.println();
         System.out.println("Veja que sua vida aumentou, e o seu dano por ataque também");
@@ -137,7 +136,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
 
         while(servo.getVida() > 0){
             UI.statusBatalha(jogador, servo);
@@ -151,7 +150,7 @@ public class Tutorial {
             System.out.println();
             System.out.println("* Aperte a tecla ENTER para continuar *");
             sc.nextLine();
-            UI.clearScreen();
+            UI.clr();
         }
 
         UI.statusBatalha(jogador, servo);
@@ -164,7 +163,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
     }
 
     public void quartaCena(Scanner sc){
@@ -181,7 +180,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
         System.out.println(jogador);
         System.out.println();
         System.out.println(vendedor);
@@ -194,7 +193,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperta a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
         System.out.println();
         System.out.println("O item é adicionado no seu inventário, e o valor do item comprado é debitado da quantia de dinheiro da qual você possui automaticamente");
         System.out.println();
@@ -207,7 +206,7 @@ public class Tutorial {
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
-        UI.clearScreen();
+        UI.clr();
     }
 
     private char readInput(Scanner sc){
