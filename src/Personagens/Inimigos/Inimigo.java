@@ -1,6 +1,7 @@
 package Personagens.Inimigos;
 
 import Personagens.Jogador;
+import Personagens.PersonagemException;
 
 public abstract class Inimigo {
 
@@ -8,6 +9,9 @@ public abstract class Inimigo {
     private Integer dano;
 
     public Inimigo(Integer vida, Integer dano) {
+        if(vida == 0 || dano == 0){
+            throw new PersonagemException("Erro ao criar inimigo: deve ter vida e dano acima de 0");
+        }
         this.vida = vida;
         this.dano = dano;
     }

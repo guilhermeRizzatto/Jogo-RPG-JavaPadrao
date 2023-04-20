@@ -5,6 +5,7 @@ import Itens.PocaoDeVida;
 import Personagens.Inimigos.Inimigo;
 import Personagens.Inimigos.Servo;
 import Personagens.Jogador;
+import Personagens.PersonagemException;
 import Personagens.Vendedor;
 import Program.UI;
 
@@ -13,13 +14,17 @@ import java.util.Scanner;
 
 public class Tutorial {
 
-    private Jogador jogador;
-    private Inimigo servo;
+    private final Jogador jogador;
+    private final Inimigo servo;
     private final Vendedor vendedor = new Vendedor();
 
-    public Tutorial(Jogador jogador){
-        this.jogador = jogador;
+    public Tutorial(){
+        jogador = new Jogador(10,1);
         servo = new Servo(10, 2);
+    }
+
+    public Jogador getJogador(){
+        return jogador;
     }
 
     public void primeiraCena(Scanner sc){
@@ -31,10 +36,13 @@ public class Tutorial {
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
         UI.clr();
-        System.out.println("Você sera enviado a uma torre de 10 andares, e o seu objetivo é chegar até o seu ultimo andar");
+        System.out.println("Você sera enviado a uma torre de 5 andares, e o seu objetivo é chegar até o seu ultimo andar");
         System.out.println("Derrotando todos os inimigos que aparecerem em cada andar");
+        System.out.println("Lembrando que seus atributos de vida e dano são randomicos a cada vez que iniciar o jogo, então depende de sua sorte para sobreviver aos primeiros andares");
         System.out.println();
-        System.out.println("Você precisará ser forte, a cada andar os inimigos vão ficando cada vez mais fortes!!");
+        System.out.println("*** NESTE TUTORIAL A SUA VIDA É 10 E O SEU DANO É 1, PARA FINS DEMONSTRATIVOS ***");
+        System.out.println();
+        System.out.println("A cada andar os inimigos vão ficando cada vez mais fortes!!");
         System.out.println();
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
@@ -75,8 +83,16 @@ public class Tutorial {
         System.out.println();
         System.out.println("T - Atacar");
         System.out.println();
-        while (readInput(sc) != 't'){
-            System.out.println("Digite T");
+        while (true) {
+            try {
+                if (readInput(sc) == 't') {
+                    break;
+                }
+                System.out.println("Erro: digite T");
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("Erro: digite novamente");
+                System.out.println();
+            }
         }
         jogador.atkJogador(servo);
         servo.atk(jogador);
@@ -91,8 +107,16 @@ public class Tutorial {
             UI.clr();
             UI.statusBatalha(jogador, servo);
             System.out.println("T - Atacar");
-            while (readInput(sc) != 't') {
-                System.out.println("Digite T");
+            while (true) {
+                try {
+                    if (readInput(sc) == 't') {
+                        break;
+                    }
+                    System.out.println("Erro: digite T");
+                } catch (StringIndexOutOfBoundsException e){
+                    System.out.println("Erro: digite novamente");
+                    System.out.println();
+                }
             }
             jogador.atkJogador(servo);
             servo.atk(jogador);
@@ -111,20 +135,20 @@ public class Tutorial {
         jogador.adicionarItem(new PocaoDeDano(3, 0.0));
         System.out.println("Agora preste atenção no seu inventário");
         System.out.println();
-        System.out.println(jogador);
-        System.out.println();
-        jogador.mostrarInventario();
-        System.out.println();
-        System.out.println("Aperte o número do item que deseja usar");
-        jogador.usarItem(jogador,sc.nextInt());
-        System.out.println();
-        System.out.println(jogador);
-        System.out.println();
-        jogador.mostrarInventario();
-        System.out.println();
-        System.out.println("Novamente, aperte o número do item que restou");
-        jogador.usarItem(jogador,sc.nextInt());
-        System.out.println();
+        while(!jogador.getInventario().isEmpty()) {
+            try {
+                System.out.println(jogador);
+                System.out.println();
+                jogador.mostrarInventario();
+                System.out.println();
+                System.out.println("Aperte o número do item que deseja usar");
+                jogador.usarItem(jogador, sc.nextInt());
+                System.out.println();
+            } catch (PersonagemException e){
+                System.out.println(e.getMessage());
+                System.out.println();
+            }
+        }
         System.out.println("* Aperte a tecla ENTER para continuar *");
         sc.nextLine();
         UI.clr();
@@ -142,8 +166,16 @@ public class Tutorial {
             UI.statusBatalha(jogador, servo);
             System.out.println("T - Atacar");
             System.out.println();
-            while (readInput(sc) != 't') {
-                System.out.println("Digite T");
+            while (true) {
+                try {
+                    if (readInput(sc) == 't') {
+                        break;
+                    }
+                    System.out.println("Erro: digite T");
+                } catch (StringIndexOutOfBoundsException e){
+                    System.out.println("Erro: digite novamente");
+                    System.out.println();
+                }
             }
             jogador.atkJogador(servo);
             servo.atk(jogador);
@@ -185,11 +217,20 @@ public class Tutorial {
         System.out.println();
         System.out.println(vendedor);
         System.out.println();
-        vendedor.mostrarItens();
-        System.out.println();
-        System.out.println("Digite o número do item que deseja comprar");
-        vendedor.venderItem(jogador, sc.nextInt());
-        sc.nextLine();
+        while(true) {
+            try {
+                vendedor.mostrarItens();
+                System.out.println();
+                System.out.println("Digite o número do item que deseja comprar");
+                vendedor.venderItem(jogador, sc.nextInt());
+                sc.nextLine();
+                System.out.println();
+                break;
+            }catch (PersonagemException e){
+                System.out.println(e.getMessage());
+                System.out.println();
+            }
+        }
         System.out.println();
         System.out.println("* Aperta a tecla ENTER para continuar *");
         sc.nextLine();

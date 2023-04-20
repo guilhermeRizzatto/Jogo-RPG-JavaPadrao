@@ -35,7 +35,7 @@ public class Vendedor {
     public void venderItem(Jogador jogador, int s){
         Item item = retornaItem(s);
         if (item.getPreco() > jogador.getDinheiro()){
-            System.out.println("Dinheiro insuficiente");
+            throw new PersonagemException("Erro: dinheiro insuficiente");
         }
         else{
             jogador.setDinheiro(jogador.getDinheiro() - item.getPreco());
@@ -49,7 +49,7 @@ public class Vendedor {
                 return itens.get(i);
             }
         }
-        return null;
+        throw new PersonagemException("Erro: este item não existe");
     }
 
 

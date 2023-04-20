@@ -1,8 +1,6 @@
 package Personagens;
 
 import Itens.Item;
-import Itens.PocaoDeDano;
-import Itens.PocaoDeVida;
 import Personagens.Inimigos.Inimigo;
 
 import java.util.ArrayList;
@@ -13,13 +11,19 @@ public class Jogador {
     private Integer vida;
     private Integer dano;
     private Double dinheiro;
-    private ArrayList inventario;
+    private ArrayList inventario = new ArrayList<>();
 
     public Jogador() {
-        vida = 10;
-        dano = 1;
+        vida = new Random().nextInt(14) + 7;
+        dano = new Random().nextInt(6) + 1;
         dinheiro = 0.0;
-        inventario = new ArrayList<>();
+    }
+
+    //Para uso apenas no tutorial
+    public Jogador(Integer vida, Integer dano) {
+        this.vida = vida;
+        this.dano = dano;
+        dinheiro = 0.0;
     }
 
     public Integer getVida() {
@@ -70,23 +74,21 @@ public class Jogador {
 
     public void usarItem(Jogador jogador, int n){
         Item p = pegarItem(n);
-                if(p instanceof PocaoDeVida){
-                    jogador.setVida(jogador.getVida() + ((PocaoDeVida) p).getVida());
-                    removerItem(p);
-                }
-                if(p instanceof PocaoDeDano){
-                    jogador.setDano(jogador.getDano() + ((PocaoDeDano) p).getDano());
-                    removerItem(p);
-                }
-            }
+        if(p == null){
+            throw new PersonagemException("Erro: este item não existe");
+        }
+        p.uso(jogador);
+        removerItem(p);
+    }
 
-    public Item pegarItem(int n){
+    private Item pegarItem(int n){
+        Item item = null;
         for (int i = 0; i < inventario.size(); i++) {
             if (n - 1 == i) {
-                return (Item) inventario.get(i);
+                item = (Item) inventario.get(i);
             }
         }
-        return null;
+        return item;
     }
 
     public void atkJogador(Inimigo inimigo){
