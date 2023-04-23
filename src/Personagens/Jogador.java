@@ -111,6 +111,7 @@ public class Jogador {
         return "Jogador: " +"\n"
                 + "Vida: " + vida + "\n"
                 + "Dano por ataque: " + dano + "\n"
-                + "Dinheiro: " + dinheiro;
+                + "Dinheiro: " + dinheiro
+                + " ";
     }
 }

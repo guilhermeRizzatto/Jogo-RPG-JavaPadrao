@@ -14,20 +14,16 @@ import java.util.Scanner;
 
 public class Tutorial {
 
-    private final Jogador jogador;
-    private final Inimigo servo;
-    private final Vendedor vendedor = new Vendedor();
+    private static final Jogador jogador = new Jogador(10,1);;
+    private static final Inimigo servo= new Servo(10, 2);
+    private static final Vendedor vendedor = new Vendedor();
 
-    public Tutorial(){
-        jogador = new Jogador(10,1);
-        servo = new Servo(10, 2);
-    }
 
     public Jogador getJogador(){
         return jogador;
     }
 
-    public void primeiraCena(Scanner sc){
+    public static void primeiraCena(Scanner sc){
         UI.clr();
         System.out.println("Bem vindo ao tutorial");
         System.out.println();
@@ -56,7 +52,7 @@ public class Tutorial {
         UI.clr();
     }
 
-    public void segundaCena(Scanner sc){
+    public static void segundaCena(Scanner sc){
         System.out.println("Um inimigo a frente!!");
         System.out.println();
         System.out.println("Sempre que trombar com um inimigo, você precisa matá-lo, para poder continuar em frente");
@@ -75,7 +71,7 @@ public class Tutorial {
 
     }
 
-    public void terceiraCena(Scanner sc){
+    public static void terceiraCena(Scanner sc){
         UI.statusBatalha(jogador,servo);
         System.out.println("Aperte a seguinte tecla para atacar, quando a opção ataque estiver disponível");
         System.out.println();
@@ -198,7 +194,7 @@ public class Tutorial {
         UI.clr();
     }
 
-    public void quartaCena(Scanner sc){
+    public static void quartaCena(Scanner sc){
         System.out.println(jogador);
         System.out.println();
         System.out.println("Ao final de todo andar, você irá encontrar o vendedor, ele que irá vender os itens que podem te ajuda durante as batalhas");
@@ -250,7 +246,7 @@ public class Tutorial {
         UI.clr();
     }
 
-    private char readInput(Scanner sc){
+    private static char readInput(Scanner sc){
         return sc.nextLine().charAt(0);
     }
 

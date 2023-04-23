@@ -1,5 +1,6 @@
 package Program;
 
+import Andares.Andar1;
 import Andares.Tutorial;
 import Personagens.Inimigos.Inimigo;
 import Personagens.Jogador;
@@ -47,19 +48,14 @@ public class UI {
 
             switch (s){
                 case "1":
-                    System.out.println();
-                    System.out.println("Em produção...");
-                    System.out.println();
-                    System.out.println(" * aperte ENTER para voltar * ");
-                    sc.nextLine();
-                    UI.clr();
+                    Jogador jogador = new Jogador();
+                    Andar1.runAndar(jogador,sc);
                     break;
                 case "2":
-                    Tutorial tutorial = new Tutorial();
-                    tutorial.primeiraCena(sc);
-                    tutorial.segundaCena(sc);
-                    tutorial.terceiraCena(sc);
-                    tutorial.quartaCena(sc);
+                    Tutorial.primeiraCena(sc);
+                    Tutorial.segundaCena(sc);
+                    Tutorial.terceiraCena(sc);
+                    Tutorial.quartaCena(sc);
                     break;
                 case "0":
                     System.out.println();
